@@ -1,7 +1,5 @@
 @extends('master')
-
 @section('title', 'Корзина')
-
 @section('content')
     <div class="starter-template">
         <h1>Корзина</h1>
@@ -22,34 +20,33 @@
                         <td>
                             <a href="{{ route('product', [$product->category->code, $product->code]) }}">
                                 <img height="56px"
-                                     src="http://laravel-diplom-1.rdavydov.ru/storage/products/iphone_x.jpg">
+                                     src="http://iphone_x.jpg">
                                 {{ $product->name }}
                             </a>
                         </td>
-                        <td><span class="badge">1</span>
+                        <td><span class="badge">{{ $product->pivot->count }}</span>
                             <div class="btn-group">
                                 <form action="{{ route('basket-remove', $product) }}" method="POST">
                                     <button type="submit" class="btn btn-danger"
-                                            href="{{ route('basket-remove', $product) }}"><span
+                                            href=""><span
                                             class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
                                     @csrf
                                 </form>
                                 <form action="{{ route('basket-add', $product) }}" method="POST">
                                     <button type="submit" class="btn btn-success"
-                                            href="{{ route('basket-add', $product) }}"><span
+                                            href=""><span
                                             class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                                     @csrf
                                 </form>
                             </div>
                         </td>
                         <td>{{ $product->price }} руб.</td>
-                        <td>{{ $product->price }} руб.</td>
+                        <td>{{ $product->getPriceForCount() }} руб.</td>
                     </tr>
                 @endforeach
-
                 <tr>
                     <td colspan="3">Общая стоимость:</td>
-                    <td>71990 руб.</td>
+                    <td>{{ $order->getFullPrice() }} руб.</td>
                 </tr>
                 </tbody>
             </table>
