@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Интернет Магазин: @yield('title')</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/starter-template.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/starter-template.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -24,13 +24,19 @@
                 <li><a href="{{ route('index') }}">Сбросить проект в начальное состояние</a></li>
             </ul>
 
-{{--            <ul class="nav navbar-nav navbar-right">--}}
-{{--                <li><a href="http://laravel-diplom-1.rdavydov.ru/admin/home">Панель администратора</a></li>--}}
-{{--            </ul>--}}
+            <ul class="nav navbar-nav navbar-right">
+                @guest
+                    <li><a href="{{ route('login') }}">Панель администратора</a></li>
+                @endguest
+
+                @auth
+                    <li><a href="{{ route('home') }}">Панель администратора</a></li>
+                    <li><a href="{{ route('get-logout') }}">Выйти</a></li>
+                @endauth
+            </ul>
         </div>
     </div>
 </nav>
-
 <div class="container">
     <div class="starter-template">
         @if(session()->has('success'))
