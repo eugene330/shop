@@ -41,6 +41,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('get-logout');
 
 Route::get('/', 'MainController@index')->name('index');
 Route::get('/categories', 'MainController@categories')->name('categories');
+Route::post('subscription/{product}', 'MainController@subscribe')->name('subscription');
 
 Route::group(['prefix' => 'basket'], function () {
     Route::post('/add/{product}', 'BasketController@basketAdd')->name('basket-add');
