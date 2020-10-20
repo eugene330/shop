@@ -1,7 +1,7 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class CurrencySeeder extends Seeder
 {
@@ -12,26 +12,31 @@ class CurrencySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('currencies')->truncate(); //TODO truncate not production
-
+        DB::table('currencies')->truncate();
         DB::table('currencies')->insert([
             [
                 'code' => 'RUB',
                 'symbol' => '₽',
                 'is_main' => 1,
                 'rate' => 1,
+                'updated_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
             ],
             [
                 'code' => 'USD',
                 'symbol' => '$',
                 'is_main' => 0,
                 'rate' => 0,
+                'updated_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
             ],
             [
                 'code' => 'EUR',
                 'symbol' => '€',
                 'is_main' => 0,
                 'rate' => 0,
+                'updated_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
             ],
         ]);
     }
