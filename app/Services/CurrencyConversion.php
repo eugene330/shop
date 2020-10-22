@@ -81,7 +81,7 @@ class CurrencyConversion
         $currencyFromSession = self::getCurrencyFromSession();
 
         $currency = self::$container[$currencyFromSession];
-        return $currency->symbol;
+//        return $currency->symbol;
     }
 
     public static function getBaseCurrency()
