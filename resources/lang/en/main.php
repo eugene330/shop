@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'online_shop' => 'Online Shop',
-    'all_products' => 'All products',
-    'product' => 'Product',
+    'online_shop' => 'Vacancies',
+    'all_products' => 'All vacancies',
+    'product' => 'Vacancy',
     'categories' => 'Categories',
     'all_categories' => 'All categories',
     'category' => 'Category ',
@@ -25,9 +25,10 @@ return [
     'my_orders' => 'My orders',
     'admin_panel' => 'Admin panel',
     'title' => 'Main',
-    'rub' => 'rub',
+    'rub' => 'uah',
     'add_to_basket' => 'Add to cart',
     'more' => 'More about',
     'not_available' => 'Not available',
     'project_reset' => 'The Project was reset',
+    'logo' => 'Logo',
 ];

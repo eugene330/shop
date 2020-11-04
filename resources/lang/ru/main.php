@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'online_shop' => 'Интернет Магазин',
-    'all_products' => 'Все товары',
-    'product' => 'Товар',
+    'online_shop' => 'Вакансии',
+    'all_products' => 'Все вакансии',
+    'product' => 'Вакансия',
     'categories' => 'Категории',
     'all_categories' => 'Все Категории',
     'category' => 'Категория ',
@@ -25,9 +25,10 @@ return [
     'my_orders' => 'Мои заказы',
     'admin_panel' => 'Панель администратора',
     'title' => 'Главная',
-    'rub' => 'руб',
+    'rub' => 'грн',
     'add_to_basket' => 'В корзину',
     'more' => 'Подробнее',
     'not_available' => 'Не доступен',
     'project_reset' => 'Проект был сброшен в начальное состояние',
+    'logo' => 'Логотип',
 ];
