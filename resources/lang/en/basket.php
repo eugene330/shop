@@ -6,7 +6,7 @@ return [
     'removed' => 'Removed ',
     'name' => 'Name',
     'count' => 'Count',
-    'price' => 'Price',
+    'price' => 'Salary',
     'full_cost' => 'Full cost',
     'cost' => 'Cost',
     'total' => 'Total',

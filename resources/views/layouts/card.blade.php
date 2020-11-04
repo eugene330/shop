@@ -24,7 +24,7 @@
                     <h4>{{ $propertyOption->property->__('name') }}: {{ $propertyOption->__('name') }}</h4>
                 @endforeach
             @endisset
-            <p>{{ $sku->price }} {{ $currencySymbol }}</p>
+            <p>{{ $sku->price }} грн/мес.</p>{{ $currencySymbol }}
             <p>
             <form action="{{ route('basket-add', $sku) }}" method="POST">
                 @if($sku->isAvailable())

@@ -17,7 +17,7 @@
     <p>{{ $skus->product->__('description') }}</p>
 
     @if($skus->isAvailable())
-        <form action="{{ route('basket-add', $skus->product) }}" method="POST">
+        <form action="{{ route('basket-add', $skus) }}" method="POST">
             <button type="submit" class="btn btn-success" role="button">@lang('product.add_to_cart')</button>
 
             @csrf
