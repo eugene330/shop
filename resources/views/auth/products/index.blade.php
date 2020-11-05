@@ -43,7 +43,7 @@
                                 <a class="btn btn-success" type="button"
                                    href="{{ route('products.show', $product) }}">Открыть</a>
                                 <a class="btn btn-success" type="button"
-                                   href="{{ route('skus.index', $product) }}">Вариации</a>
+                                   href="{{ route('skus.index', $product) }}">Skus</a>
                                 <a class="btn btn-warning" type="button"
                                    href="{{ route('products.edit', $product) }}">Редактировать</a>
                                 @csrf
