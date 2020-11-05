@@ -19,6 +19,7 @@ return [
     'cart_is_empty' => 'Your Cart is empty!',
     'not_available_more' => ' vacancy is not available',
     'you_cant_order_more' => 'Vacancy is not available',
+    'remove' => 'Remove',
 
     'data' => [
         'name' => 'Name',

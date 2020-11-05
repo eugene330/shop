@@ -19,6 +19,7 @@ return [
     'cart_is_empty' => 'Ваши заявки отсутсвуют!',
     'not_available_more' => ' вакансия больше не доступна',
     'you_cant_order_more' => 'Вакансия больше не доступна',
+    'remove' => 'Удалить',
 
     'data' => [
         'name' => 'Имя',

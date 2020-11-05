@@ -10,7 +10,7 @@
                     <th>@lang('basket.name')</th>
 {{--                    <th>@lang('basket.count')</th>--}}
                     <th>@lang('basket.price')</th>
-{{--                    <th>@lang('basket.cost')</th>--}}
+                    <th>@lang('basket.remove')</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,7 +39,17 @@
 {{--                            </div>--}}
 {{--                        </td>--}}
                         <td>{{ $product->price }} {{ $currencySymbol }}</td>
+
 {{--                        <td>{{ $product->price * $product->countInOrder }} {{ $currencySymbol }}</td>--}}
+                        <td><span class="badge"></span>
+                            <div class="btn-group form-inline">
+                                <form action="{{ route('basket-remove', $product) }}" method="POST">
+                                    <button type="submit" class="btn btn-danger" href=""><span
+                                            class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                                    @csrf
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
 {{--                <tr>--}}

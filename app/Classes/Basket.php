@@ -79,12 +79,10 @@ class Basket
     {
 
         if ($this->order->products->contains($product)) {
-            $pivotRow = $this->order->products->where('id', $product->id)->first();
-            if ($pivotRow->countInOrder < 2) {
-                $this->order->products->pop($product);
-            } else {
-                $pivotRow->countInOrder--;
-            }
+            $this->order->products = $this->order->products->filter(function ($value, $key) use ($product) {
+
+                return $value->id !== $product->id;
+            });
         }
     }
 
