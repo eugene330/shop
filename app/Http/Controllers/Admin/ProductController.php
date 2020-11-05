@@ -98,8 +98,6 @@ class ProductController extends Controller
             }
         }
 
-//        dd($params);
-
         $product->update($params);
         return redirect()->route('products.index');
     }
