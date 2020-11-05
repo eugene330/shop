@@ -1,10 +1,10 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Категории')
+@section('title', 'Страны')
 
 @section('content')
     <div class="col-md-12">
-        <h1>Категории</h1>
+        <h1>Страны</h1>
         <table class="table">
             <tbody>
             <tr>
@@ -44,6 +44,6 @@
         </table>
         {{ $categories->links() }}
         <a class="btn btn-success" type="button"
-           href="{{ route('categories.create') }}">Добавить категорию</a>
+           href="{{ route('categories.create') }}">Добавить страну</a>
     </div>
 @endsection

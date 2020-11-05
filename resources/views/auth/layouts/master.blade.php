@@ -31,7 +31,7 @@
                 <ul class="nav navbar-nav">
 
                     @admin
-                    <li><a href="{{ route('categories.index') }}">Категории</a></li>
+                    <li><a href="{{ route('categories.index') }}">Страны</a></li>
                     <li><a href="{{ route('products.index') }}">Вакансии</a></li>
                     <li><a href="{{ route('home') }}">Заявки</a></li>
                     @endadmin

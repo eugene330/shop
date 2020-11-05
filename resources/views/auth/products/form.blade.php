@@ -53,7 +53,7 @@
                 </div>
                 <br>
                 <div class="input-group row">
-                    <label for="category_id" class="col-sm-2 col-form-label">Категория: </label>
+                    <label for="category_id" class="col-sm-2 col-form-label">Страна: </label>
                     <div class="col-sm-6">
                         @include('auth.layouts.error', ['fieldName' => 'category_id'])
                         <select name="category_id" id="category_id" class="form-control">

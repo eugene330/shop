@@ -72,7 +72,7 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-lg-6"><p>Категории</p>
+            <div class="col-lg-6"><p>Страны</p>
                 <ul>
                     @foreach($categories as $category)
                         <li><a href="{{ route('category', $category->code) }}">{{ $category->__('name') }}</a></li>

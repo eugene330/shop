@@ -1,17 +1,17 @@
 @extends('auth.layouts.master')
 
 @isset($category)
-    @section('title', 'Редактировать категорию ' . $category->name)
+    @section('title', 'Редактировать страну ' . $category->name)
 @else
-    @section('title', 'Создать категорию')
+    @section('title', 'Создать страну')
 @endisset
 
 @section('content')
     <div class="col-md-12">
         @isset($category)
-            <h1>Редактировать категорию <b>{{ $category->name }}</b></h1>
+            <h1>Редактировать страну <b>{{ $category->name }}</b></h1>
         @else
-            <h1>Добавить Категорию</h1>
+            <h1>Добавить страну</h1>
         @endisset
 
         <form method="POST" enctype="multipart/form-data"

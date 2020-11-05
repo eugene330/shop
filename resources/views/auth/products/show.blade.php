@@ -42,22 +42,22 @@
                 <td><img src="{{ Storage::url($product->image) }}" height="240px"></td>
             </tr>
             <tr>
-                <td>Категория</td>
+                <td>Страна</td>
                 <td>{{ $product->category->name }}</td>
             </tr>
             <tr>
                 <td>Лейблы</td>
                 <td>
                     @if($product->isNew())
-                        <span class="badge badge-success">Новинка</span>
+                        <span class="badge badge-success">По БИО</span>
                     @endif
 
                     @if($product->isRecommend())
-                        <span class="badge badge-warning">Рекомендуем</span>
+                        <span class="badge badge-warning">Акция</span>
                     @endif
 
                     @if($product->isHit())
-                        <span class="badge badge-danger">Хит продаж!</span>
+                        <span class="badge badge-danger">Без опыта</span>
                     @endif
                 </td>
             </tr>

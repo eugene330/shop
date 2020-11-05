@@ -1,10 +1,10 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Категория ' . $category->name)
+@section('title', 'Страна ' . $category->name)
 
 @section('content')
     <div class="col-md-12">
-        <h1>Категория {{ $category->name }} </h1>
+        <h1>Страна {{ $category->name }} </h1>
         <table class="table">
             <tbody>
             <tr>
@@ -45,7 +45,7 @@
                          height="240px"></td>
             </tr>
             <tr>
-                <td>Кол-во товаров</td>
+                <td>Кол-во</td>
                 <td>{{ $category->products->count() }}</td>
             </tr>
             </tbody>
