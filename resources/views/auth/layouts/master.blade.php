@@ -9,7 +9,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js" defer></script>
-    
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -32,8 +32,8 @@
 
                     @admin
                     <li><a href="{{ route('categories.index') }}">Категории</a></li>
-                    <li><a href="{{ route('products.index') }}">Товары</a></li>
-                    <li><a href="{{ route('home') }}">Заказы</a></li>
+                    <li><a href="{{ route('products.index') }}">Вакансии</a></li>
+                    <li><a href="{{ route('home') }}">Заявки</a></li>
                     @endadmin
                 </ul>
 

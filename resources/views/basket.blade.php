@@ -8,9 +8,9 @@
                 <thead>
                 <tr>
                     <th>@lang('basket.name')</th>
-                    <th>@lang('basket.count')</th>
+{{--                    <th>@lang('basket.count')</th>--}}
                     <th>@lang('basket.price')</th>
-                    <th>@lang('basket.cost')</th>
+{{--                    <th>@lang('basket.cost')</th>--}}
                 </tr>
                 </thead>
                 <tbody>
@@ -23,29 +23,29 @@
                                 {{ $product->__('name') }}
                             </a>
                         </td>
-                        <td><span class="badge">{{ $product->countInOrder }}</span>
-                            <div class="btn-group form-inline">
-                                <form action="{{ route('basket-remove', $product) }}" method="POST">
-                                    <button type="submit" class="btn btn-danger" href=""><span
-                                            class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
-                                    @csrf
-                                </form>
-                                <form action="{{ route('basket-add', $product) }}" method="POST">
-                                    <button type="submit" class="btn btn-success"
-                                            href=""><span
-                                            class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                                    @csrf
-                                </form>
-                            </div>
-                        </td>
+{{--                        <td><span class="badge">{{ $product->countInOrder }}</span>--}}
+{{--                            <div class="btn-group form-inline">--}}
+{{--                                <form action="{{ route('basket-remove', $product) }}" method="POST">--}}
+{{--                                    <button type="submit" class="btn btn-danger" href=""><span--}}
+{{--                                            class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>--}}
+{{--                                    @csrf--}}
+{{--                                </form>--}}
+{{--                                <form action="{{ route('basket-add', $product) }}" method="POST">--}}
+{{--                                    <button type="submit" class="btn btn-success"--}}
+{{--                                            href=""><span--}}
+{{--                                            class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>--}}
+{{--                                    @csrf--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                        </td>--}}
                         <td>{{ $product->price }} {{ $currencySymbol }}</td>
-                        <td>{{ $product->price * $product->countInOrder }} {{ $currencySymbol }}</td>
+{{--                        <td>{{ $product->price * $product->countInOrder }} {{ $currencySymbol }}</td>--}}
                     </tr>
                 @endforeach
-                <tr>
-                    <td colspan="3">@lang('basket.full_cost'):</td>
-                    <td>{{ $order->getFullSum() }} {{ $currencySymbol }}</td>
-                </tr>
+{{--                <tr>--}}
+{{--                    <td colspan="3">@lang('basket.full_cost'):</td>--}}
+{{--                    <td>{{ $order->getFullSum() }} {{ $currencySymbol }}</td>--}}
+{{--                </tr>--}}
                 </tbody>
             </table>
             <br>

@@ -25,7 +25,7 @@
                 <li @routeactive('categor*')><a href="{{ route('categories') }}">@lang('main.categories')</a>
                 </li>
                 <li @routeactive('basket*')><a href="{{ route('basket') }}">@lang('main.cart')</a></li>
-                <li><a href="{{ route('reset') }}">@lang('main.reset_project')</a></li>
+{{--                <li><a href="{{ route('reset') }}">@lang('main.reset_project')</a></li>--}}
                 <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
             </ul>
 
@@ -72,14 +72,14 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-lg-6"><p>Категории товаров</p>
+            <div class="col-lg-6"><p>Категории</p>
                 <ul>
                     @foreach($categories as $category)
                         <li><a href="{{ route('category', $category->code) }}">{{ $category->__('name') }}</a></li>
                     @endforeach
                 </ul>
             </div>
-            <div class="col-lg-6"><p>Самые популярные товары</p>
+            <div class="col-lg-6"><p>Самые популярные вакансии</p>
                 <ul>
                     @foreach ($bestProducts as $bestProduct)
                         <li>

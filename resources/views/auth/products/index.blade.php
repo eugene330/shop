@@ -1,6 +1,6 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Товары')
+@section('title', 'Вакансии')
 
 @section('content')
     <div class="col-md-12">
@@ -21,7 +21,7 @@
                     Категория
                 </th>
                 <th>
-                    Цена
+                    Зарплата
                 </th>
                 <th>
                     Количество
@@ -55,6 +55,6 @@
             </tbody>
         </table>
         {{ $products->links() }}
-        <a class="btn btn-success" type="button" href="{{ route('products.create') }}">Добавить товар</a>
+        <a class="btn btn-success" type="button" href="{{ route('products.create') }}">Добавить вакансию</a>
     </div>
 @endsection

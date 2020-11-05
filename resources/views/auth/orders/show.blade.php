@@ -1,14 +1,14 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Заказ ' . $order->id)
+@section('title', 'Заявка ' . $order->id)
 
 @section('content')
     <div class="py-4">
         <div class="container">
             <div class="justify-content-center">
                 <div class="panel">
-                    <h1>Заказ №{{ $order->id }}</h1>
-                    <p>Заказчик: <b>{{ $order->name }}</b></p>
+                    <h1>Заявка №{{ $order->id }}</h1>
+                    <p>Кандидат: <b>{{ $order->name }}</b></p>
                     <p>Номер телефона: <b>{{ $order->phone }}</b></p>
                     <table class="table table-striped">
                         <thead>

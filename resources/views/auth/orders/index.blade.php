@@ -1,10 +1,10 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Заказы')
+@section('title', 'Заявки')
 
 @section('content')
     <div class="col-md-12">
-        <h1>Заказы</h1>
+        <h1>Заявки</h1>
         <table class="table">
             <tbody>
             <tr>

@@ -1,17 +1,17 @@
 @extends('auth.layouts.master')
 
 @isset($product)
-    @section('title', 'Редактировать товар ' . $product->name)
+    @section('title', 'Редактировать вакансию ' . $product->name)
 @else
-    @section('title', 'Создать товар')
+    @section('title', 'Создать вакансию')
 @endisset
 
 @section('content')
     <div class="col-md-12">
         @isset($product)
-            <h1>Редактировать товар <b>{{ $product->name }}</b></h1>
+            <h1>Редактировать вакансию <b>{{ $product->name }}</b></h1>
         @else
-            <h1>Добавить товар</h1>
+            <h1>Добавить вакансию</h1>
         @endisset
         <form method="POST" enctype="multipart/form-data"
               @isset($product)
@@ -98,7 +98,7 @@
                 </div>
                 <br>
                 <div class="input-group row">
-                    <label for="price" class="col-sm-2 col-form-label">Цена: </label>
+                    <label for="price" class="col-sm-2 col-form-label">Зарплата: </label>
                     <div class="col-sm-2">
                         @include('auth.layouts.error', ['fieldName' => 'price'])
                         <input type="text" class="form-control" name="price" id="price"
@@ -116,9 +116,9 @@
                 </div>
                 <br>
                 @foreach([
-    'hit'=>'Хит',
-    'new'=>'Новинка',
-    'recommend'=>'Рекомендуемые',
+    'hit'=>'Без опыта',
+    'new'=>'По БИО',
+    'recommend'=>'Акция',
 ] as $field=>$title)
                     <div class="input-group row">
                         <label for="name" class="col-sm-2 col-form-label">{{ $title }}: </label>
