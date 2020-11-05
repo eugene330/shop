@@ -36,9 +36,10 @@ class Product extends Model
         return $this->hasMany(Sku::class);
     }
 
+    //TODO Check table name and fields
     public function properties()
     {
-        return $this->belongsToMany(Property::class, 'property_product')->withTimestamps();
+        return $this->belongsToMany(Property::class);
     }
 
     public function getPriceForCount()

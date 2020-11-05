@@ -13,8 +13,9 @@ class Sku extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function propertyOptions()
+    //TODO check table names and fields
+    public function skus()
     {
-        return $this->belongsToMany(PropertyOption::class, 'sku_property_option')->withTimestamps();
+        return $this->belongsToMany(PropertyOption::class);
     }
 }
