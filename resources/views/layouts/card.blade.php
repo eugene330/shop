@@ -1,9 +1,6 @@
 <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
         <div class="labels">
-            <?php
-                //dd(\App\Models\Sku::query()->with('product')->whereDoesntHave('product')->delete());
-            ?>
             @if($sku->product->isNew())
                 <span class="badge badge-success">@lang('main.properties.new')</span>
             @endif

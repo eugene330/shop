@@ -84,7 +84,6 @@ class SkuController extends Controller
      */
     public function update(Request $request, Product $product, Sku $skus)
     {
-        dd($request, $product, $skus);
         $params = $request->all();
         $params['product_id'] = $request->product->id;
         $skus->update($params);
