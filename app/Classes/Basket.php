@@ -54,7 +54,7 @@ class Basket
             }
 
             if ($updateCount) {
-                $product->count -= $orderProduct->countInOrder;
+                $product->count = $orderProduct->countInOrder;
                 $products->push($product);
             }
         }
