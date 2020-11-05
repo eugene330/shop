@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Classes\Basket;
-use App\Models\Sku;
+use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +20,7 @@ class BasketController extends Controller
     public function basketConfirm(Request $request)
     {
         $email = Auth::check() ? Auth::user()->email : $request->email;
+
         if ((new Basket())->saveOrder($request->name, $request->phone, $email)) {
             session()->flash('success', __('basket.you_order_confirmed'));
         } else {
@@ -31,6 +34,7 @@ class BasketController extends Controller
     {
         $basket = new Basket();
         $order = $basket->getOrder();
+
         if (!$basket->countAvailable()) {
             session()->flash('warning', __('basket.you_cant_order_more'));
             return redirect()->route('basket');
@@ -38,24 +42,24 @@ class BasketController extends Controller
         return view('order', compact('order'));
     }
 
-    public function basketAdd(Sku $skus)
+    public function basketAdd(Product $product)
     {
-        $result = (new Basket(true))->addSku($skus);
+        $result = (new Basket(true))->addProduct($product);
 
         if ($result) {
-            session()->flash('success', __('basket.added') . $skus->product->__('name'));
+            session()->flash('success', __('basket.added') . $product->name);
         } else {
-            session()->flash('warning', $skus->product->__('name') . __('basket.not_available_more'));
+            session()->flash('warning', $product->name . __('basket.not_available_more'));
         }
 
         return redirect()->route('basket');
     }
 
-    public function basketRemove(Sku $skus)
+    public function basketRemove(Product $product)
     {
-        (new Basket())->removeSku($skus);
+        (new Basket())->removeProduct($product);
 
-        session()->flash('warning', __('basket.removed') . $skus->product->__('name'));
+        session()->flash('warning', __('basket.removed') . $product->name);
 
         return redirect()->route('basket');
     }

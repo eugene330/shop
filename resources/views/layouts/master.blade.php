@@ -8,10 +8,10 @@
     <title>@lang('main.online_shop'): @yield('title')</title>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/starter-template.css" rel="stylesheet">
+    <script src="{{ url('/js/jquery.min.js') }}"></script>
+    <script src="{{ url('/js/bootstrap.min.js') }}"></script>
+    <link href="{{url('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url('css/starter-template.css')}}" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -27,17 +27,18 @@
                 <li @routeactive('basket*')><a href="{{ route('basket') }}">@lang('main.cart')</a></li>
                 <li><a href="{{ route('reset') }}">@lang('main.reset_project')</a></li>
                 <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{ $currencySymbol }}<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        @foreach ($currencies as $currency)
-                            <li><a href="{{ route('currency', $currency->code) }}">{{ $currency->symbol }}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
             </ul>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">{{ $currencySymbol }}<span
+                        class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    @foreach ($currencies as $currency)
+                        <li><a href="{{ route('currency', $currency->code) }}">{{ $currency->symbol }}</a></li>
+                    @endforeach
+                </ul>
+            </li>
 
             <ul class="nav navbar-nav navbar-right">
                 @guest
@@ -56,7 +57,6 @@
         </div>
     </div>
 </nav>
-
 <div class="container">
     <div class="starter-template">
         @if(session()->has('success'))
@@ -81,10 +81,10 @@
             </div>
             <div class="col-lg-6"><p>Самые популярные товары</p>
                 <ul>
-                    @foreach ($bestSkus as $bestSku)
-                        <li><a href="{{ route('sku',
-                [$bestSku->product->category->code, $bestSku->product->code, $bestSku]) }}">
-                                {{ $bestSku->product->__('name') }}</a></li>
+                    @foreach ($bestProducts as $bestProduct)
+                        <li>
+                            <a href="{{ route('product', [$bestProduct->category->code, $bestProduct->code]) }}">{{ $bestProduct->name }}</a>
+                        </li>
                     @endforeach
                 </ul>
             </div>

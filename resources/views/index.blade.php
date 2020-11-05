@@ -16,14 +16,12 @@
             </div>
             <div class="col-sm-2 col-md-2">
                 <label for="hit">
-                    <input type="checkbox" name="hit" id="hit"
-                           @if(request()->has('hit')) checked @endif> @lang('main.properties.hit')
+                    <input type="checkbox" name="hit" id="hit" @if(request()->has('hit')) checked @endif> @lang('main.properties.hit')
                 </label>
             </div>
             <div class="col-sm-2 col-md-2">
                 <label for="new">
-                    <input type="checkbox" name="new" id="new"
-                           @if(request()->has('new')) checked @endif> @lang('main.properties.new')
+                    <input type="checkbox" name="new" id="new" @if(request()->has('new')) checked @endif> @lang('main.properties.new')
                 </label>
             </div>
             <div class="col-sm-2 col-md-2">
@@ -39,9 +37,9 @@
         </div>
     </form>
     <div class="row">
-        @foreach($skus as $sku)
-            @include('layouts.card', compact('sku'))
+        @foreach($products as $product)
+            @include('layouts.card', compact('product'))
         @endforeach
     </div>
-    {{ $skus->links() }}
+    {{ $products->links() }}
 @endsection

@@ -4,7 +4,7 @@ namespace App\Classes;
 
 use App\Mail\OrderCreated;
 use App\Models\Order;
-use App\Models\Sku;
+use App\Models\Product;
 use App\Services\CurrencyConversion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -15,7 +15,7 @@ class Basket
 
     /**
      * Basket constructor.
-     * @param bool $createOrder
+     * @param
      */
     public function __construct($createOrder = false)
     {
@@ -45,23 +45,23 @@ class Basket
 
     public function countAvailable($updateCount = false)
     {
-        $skus = collect([]);
-        foreach ($this->order->skus as $orderSku) {
-            $sku = Sku::find($orderSku->id);
-            if ($orderSku->countInOrder > $sku->count) {
+        $products = collect([]);
+
+        foreach ($this->order->products as $orderProduct) {
+            $product = Product::find($orderProduct->id);
+            if ($orderProduct->countInOrder > $product->count) {
                 return false;
             }
 
             if ($updateCount) {
-                $sku->count -= $orderSku->countInOrder;
-                $skus->push($sku);
+                $product->count -= $orderProduct->countInOrder;
+                $products->push($product);
             }
         }
 
         if ($updateCount) {
-            $skus->map->save();
+            $products->map->save();
         }
-
         return true;
     }
 
@@ -75,32 +75,33 @@ class Basket
         return true;
     }
 
-    public function removeSku(Sku $sku)
+    public function removeProduct(Product $product)
     {
-        if ($this->order->skus->contains($sku)) {
-            $pivotRow = $this->order->skus->where('id', $sku->id)->first();
+
+        if ($this->order->products->contains($product)) {
+            $pivotRow = $this->order->products->where('id', $product->id)->first();
             if ($pivotRow->countInOrder < 2) {
-                $this->order->skus->pop($sku);
+                $this->order->products->pop($product);
             } else {
                 $pivotRow->countInOrder--;
             }
         }
     }
 
-    public function addSku(Sku $sku)
+    public function addProduct(Product $product)
     {
-        if ($this->order->skus->contains($sku)) {
-            $pivotRow = $this->order->skus->where('id', $sku->id)->first();
-            if ($pivotRow->countInOrder >= $sku->count) {
+        if ($this->order->products->contains($product)) {
+            $pivotRow = $this->order->products->where('id', $product->id)->first();
+            if ($pivotRow->countInOrder >= $product->count) {
                 return false;
             }
             $pivotRow->countInOrder++;
         } else {
-            if ($sku->count == 0) {
+            if ($product->count == 0) {
                 return false;
             }
-            $sku->countInOrder = 1;
-            $this->order->skus->push($sku);
+            $product->countInOrder = 1;
+            $this->order->products->push($product);
         }
 
         return true;

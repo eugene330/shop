@@ -8,24 +8,24 @@ use Illuminate\Support\Facades\Mail;
 
 class Subscription extends Model
 {
-    protected $fillable = ['email', 'sku_id'];
+    protected $fillable = ['email', 'product_id'];
 
-    public function scopeActiveBySkuId($query, $skuId)
+    public function scopeActiveByProductId($query, $productId)
     {
-        return $query->where('status', 0)->where('sku_id', $skuId);
+        return $query->where('status', 0)->where('product_id', $productId);
     }
 
-    public function sku()
+    public function product()
     {
-        return $this->belongsTo(Sku::class);
+        return $this->belongsTo(Product::class);
     }
 
-    public static function sendEmailsBySubscription(Sku $sku)
+    public static function sendEmailBySubscription(Product $product)
     {
-        $subscriptions = self::activeBySkuId($sku->id)->get();
+        $subscriptions = self::activeByProductId($product->id)->get();
 
-        foreach($subscriptions as $subscription) {
-            Mail::to($subscription->email)->send(new SendSubscriptionMessage($sku));
+        foreach ($subscriptions as $subscription) {
+            Mail::to($subscription->email)->send(new SendSubscriptionMessage($product));
             $subscription->status = 1;
             $subscription->save();
         }

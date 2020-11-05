@@ -8,9 +8,9 @@ class Order extends Model
 {
     protected $fillable = ['user_id', 'currency_id', 'sum'];
 
-    public function skus()
+    public function products()
     {
-        return $this->belongsToMany(Sku::class)->withPivot(['count', 'price'])->withTimestamps();
+        return $this->belongsToMany(Product::class)->withPivot(['count', 'price'])->withTimestamps();
     }
 
     public function currency()
@@ -26,8 +26,8 @@ class Order extends Model
     public function calculateFullSum()
     {
         $sum = 0;
-        foreach ($this->skus()->withTrashed()->get() as $sku) {
-            $sum += $sku->getPriceForCount();
+        foreach ($this->products()->withTrashed()->get() as $product) {
+            $sum += $product->getPriceForCount();
         }
         return $sum;
     }
@@ -35,11 +35,9 @@ class Order extends Model
     public function getFullSum()
     {
         $sum = 0;
-
-        foreach ($this->skus as $sku) {
-            $sum += $sku->price * $sku->countInOrder;
+        foreach ($this->products as $product) {
+            $sum += $product->price * $product->countInOrder;
         }
-
         return $sum;
     }
 
@@ -50,17 +48,18 @@ class Order extends Model
         $this->status = 1;
         $this->sum = $this->getFullSum();
 
-        $skus = $this->skus;
+        $products = $this->products;
         $this->save();
 
-        foreach ($skus as $skuInOrder) {
-            $this->skus()->attach($skuInOrder, [
-                'count' => $skuInOrder->countInOrder,
-                'price' => $skuInOrder->price,
+        foreach ($products as $productInOrder) {
+            $this->products()->attach($productInOrder, [
+                'count' => $productInOrder->countInOrder,
+                'price' => $productInOrder->price,
             ]);
         }
 
         session()->forget('order');
         return true;
+
     }
 }
