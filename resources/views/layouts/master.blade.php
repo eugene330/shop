@@ -27,6 +27,7 @@
                 <li @routeactive('basket*')><a href="{{ route('basket') }}">@lang('main.cart')</a></li>
 {{--                <li><a href="{{ route('reset') }}">@lang('main.reset_project')</a></li>--}}
                 <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
+                <li @routeactive('about-us')><a href="{{ route('about-us') }}">@lang('main.about_us')</a></li>
             </ul>
 
             <li class="dropdown">
