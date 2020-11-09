@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Currency;
 use App\Models\Product;
 use App\Models\Subscription;
+use App\Models\Service;
 use \Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -42,6 +43,17 @@ class MainController extends Controller
     public function categories()
     {
         return view('categories');
+    }
+
+    public function services ()
+    {
+        return view('services');
+    }
+
+    public function service ($code)
+    {
+        $service = Service::where('code', $code)->first();
+        return view('services', compact('service'));
     }
 
     public function category($code)

@@ -31,4 +31,6 @@ return [
     'not_available' => 'Not available',
     'project_reset' => 'The Project was reset',
     'about_us' => 'About us',
+    'services' => 'Service',
+
 ];

@@ -19,7 +19,7 @@ class CurrencyRates
         $response = $client->request('GET', $url);
 
         if ($response->getStatusCode() !== 200) {
-            throw new Exception('There is a problem with currency rate service');
+            throw new Exception('There is a problem with currency rate services');
         }
 
         $rates = json_decode($response->getBody()->getContents(), true)['rates'];
