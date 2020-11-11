@@ -18,6 +18,12 @@
                     Название
                 </th>
                 <th>
+                    Сфера
+                </th>
+                <th>
+                    Пол
+                </th>
+                <th>
                     Страна
                 </th>
                 <th>
@@ -35,6 +41,8 @@
                     <td>{{ $product->id}}</td>
                     <td>{{ $product->code }}</td>
                     <td>{{ $product->name }}</td>
+                    <td>{{ $product->sphere }}</td>
+                    <td>{{ $product->sex }}</td>
                     <td>{{ $product->category->name }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->count }}</td>

@@ -18,6 +18,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ route('index') }}">@lang('main.online_shop')</a>
+{{--            <a class="navbar-brand" href="{{ route('index') }}"><img src="{{Storage::url('logo.png')}}" alt="logo" width="98px"/></a>--}}
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -85,7 +86,7 @@
                 <ul>
                     @foreach ($bestProducts as $bestProduct)
                         <li>
-                            <a href="{{ route('product', [$bestProduct->category->code, $bestProduct->code]) }}">{{ $bestProduct->name }}</a>
+                            <a href="{{ route('product', [$bestProduct->category->code, $bestProduct->code]) }}">{{ $bestProduct->__('name') }}</a>
                         </li>
                     @endforeach
                 </ul>

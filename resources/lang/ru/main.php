@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'online_shop' => 'Сайт вакансий',
+    'online_shop' => 'ISE Work',
     'all_products' => 'Все вакансии',
     'product' => 'Вакансии',
     'categories' => 'Страны',
@@ -32,4 +32,5 @@ return [
     'project_reset' => 'Проект был сброшен в начальное состояние',
     'about_us' => 'О нас',
     'services' => 'Услуги',
+    'sphere' => 'Сфера',
 ];

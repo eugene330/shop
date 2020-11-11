@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'online_shop' => 'Online Shop',
+    'online_shop' => 'ISE Work',
     'all_products' => 'All products',
     'product' => 'Product',
     'categories' => 'Country',
@@ -32,5 +32,6 @@ return [
     'project_reset' => 'The Project was reset',
     'about_us' => 'About us',
     'services' => 'Service',
+    'sphere' => 'Sphere',
 
 ];

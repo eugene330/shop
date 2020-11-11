@@ -3,6 +3,7 @@
 @section('content')
     <div class="col-md-12">
         <h1>{{ $product->name }}</h1>
+        {{dd($product)}}
         <table class="table">
             <tbody>
             <tr>
@@ -30,6 +31,14 @@
                 <td>{{ $product->name_en }}</td>
             </tr>
             <tr>
+                <td>Сфера</td>
+                <td>{{ $product->sphere }}</td>
+            </tr>
+            <tr>
+                <td>Сфера en</td>
+                <td>{{ $product->sphere_en }}</td>
+            </tr>
+            <tr>
                 <td>Описание</td>
                 <td>{{ $product->description }}</td>
             </tr>
@@ -44,6 +53,12 @@
             <tr>
                 <td>Страна</td>
                 <td>{{ $product->category->name }}</td>
+            </tr>
+            <tr>
+                <td>Пол</td>
+                <td>
+                    {{ $product->sex }}
+                </td>
             </tr>
             <tr>
                 <td>Лейблы</td>

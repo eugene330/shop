@@ -14,6 +14,13 @@
                     <input type="text" name="price_to" id="price_to" size="6" value="{{ request()->price_to }}">
                 </label>
             </div>
+
+            <div class="col-sm-2 col-md-2">
+                <label for="sphere">
+                    <input type="select" name="sphere" id="sphere" @if(request()->has('sphere')) @endif> @lang('main.sphere')
+                </label>
+            </div>
+
             <div class="col-sm-2 col-md-2">
                 <label for="hit">
                     <input type="checkbox" name="hit" id="hit" @if(request()->has('hit')) checked @endif> @lang('main.properties.hit')

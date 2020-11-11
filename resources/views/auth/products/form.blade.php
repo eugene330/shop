@@ -53,6 +53,22 @@
                 </div>
                 <br>
                 <div class="input-group row">
+                    <label for="sphere" class="col-sm-2 col-form-label">Сфера: </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="sphere" id="sphere"
+                               value="@isset($product){{ $product->sphere }}@endisset">
+                    </div>
+                </div>
+                <br>
+                <div class="input-group row">
+                    <label for="sphere" class="col-sm-2 col-form-label">Сфера_en: </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="sphere_en" id="sphere_en"
+                               value="@isset($product){{ $product->sphere_en }}@endisset">
+                    </div>
+                </div>
+                <br>
+                <div class="input-group row">
                     <label for="category_id" class="col-sm-2 col-form-label">Страна: </label>
                     <div class="col-sm-6">
                         @include('auth.layouts.error', ['fieldName' => 'category_id'])
@@ -66,6 +82,18 @@
                                     @endisset
                                 >{{ $category->name }}</option>
                             @endforeach
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="input-group row">
+                    <label for="sex_id" class="col-sm-2 col-form-label">Пол: </label>
+                    <div class="col-sm-6">
+                        <select name="sex" id="sex" class="form-control">
+                            <option>@lang('product.any')</option>
+                            <option>@lang('product.male')</option>
+                            <option>@lang('product.female')</option>
+                            <option>@lang('product.couple')</option>
                         </select>
                     </div>
                 </div>

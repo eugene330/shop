@@ -24,6 +24,9 @@ class Product extends Model
         'count',
         'name_en',
         'description_en',
+        'sphere',
+        'sphere_en',
+        'sex',
     ];
 
     public function category()

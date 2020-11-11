@@ -4,9 +4,12 @@
 
 @section('content')
     <h1>{{ $product->__('name') }}</h1>
-    <h2>{{ $product->category->name }}</h2>
+    <h2>{{ $product->category->__('name') }}</h2>
     <p>@lang('product.price'): <b>{{ $product->price }} {{ $currencySymbol }}</b></p>
-    <img src="{{ Storage::url($product->image) }}">
+    @if($product->sphere)
+        <p>@lang('product.sphere'):{{ $product->sphere }}</p>
+    @endif
+    <img src="{{ Storage::url($product->image) }}" width="300px">
     <p>{{ $product->__('description') }}</p>
 
     @if($product->isAvailable())

@@ -6,4 +6,9 @@ return [
     'tell_me' => 'Tell me, when it will be available',
     'subscribe' => 'Subscribe',
     'we_will_update' => 'We will update you, when the vacancy will be available',
+    'any'=>'Any',
+    'male'=>'Male',
+    'female'=>'Female',
+    'couple'=>'Couple',
+    'sphere'=>'Sphere',
 ];
