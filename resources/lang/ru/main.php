@@ -33,4 +33,5 @@ return [
     'about_us' => 'О нас',
     'services' => 'Услуги',
     'sphere' => 'Сфера',
+    'sex' => 'Пол',
 ];

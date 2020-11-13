@@ -14,21 +14,34 @@
                     <input type="text" name="price_to" id="price_to" size="6" value="{{ request()->price_to }}">
                 </label>
             </div>
-
             <div class="col-sm-2 col-md-2">
                 <label for="sphere">
-                    <input type="select" name="sphere" id="sphere" @if(request()->has('sphere')) @endif> @lang('main.sphere')
+                    <input type="select" name="sphere" id="sphere"
+                           value="{{request()->get('sphere')}}" @if(request()->has('sphere')) @endif> @lang('main.sphere')
                 </label>
             </div>
-
+            <div class="col-sm-2 col-md-2">
+                <label for="sex">
+                    <input type="select" name="sex" id="sex"
+                           value="{{request()->get('sex')}}" @if(request()->has('sex')) @endif> @lang('main.sex')
+                </label>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <label for="category">
+                    <input type="select" name="category" id="category"
+                           value="{{request()->get('category')}}" @if(request()->has('category')) @endif> @lang('main.category')
+                </label>
+            </div>
             <div class="col-sm-2 col-md-2">
                 <label for="hit">
-                    <input type="checkbox" name="hit" id="hit" @if(request()->has('hit')) checked @endif> @lang('main.properties.hit')
+                    <input type="checkbox" name="hit" id="hit"
+                           @if(request()->has('hit')) checked @endif> @lang('main.properties.hit')
                 </label>
             </div>
             <div class="col-sm-2 col-md-2">
                 <label for="new">
-                    <input type="checkbox" name="new" id="new" @if(request()->has('new')) checked @endif> @lang('main.properties.new')
+                    <input type="checkbox" name="new" id="new"
+                           @if(request()->has('new')) checked @endif> @lang('main.properties.new')
                 </label>
             </div>
             <div class="col-sm-2 col-md-2">
@@ -43,6 +56,7 @@
             </div>
         </div>
     </form>
+    <hr>
     <div class="row">
         @foreach($products as $product)
             @include('layouts.card', compact('product'))

@@ -6,12 +6,12 @@
     @foreach($services as $services)
         <div class="panel">
             <a href="{{ route('services', $services->code) }}">
-                <img src="{{ Storage::url($services->image) }}" height="50px">
+                <img src="{{ Storage::url($services->image) }}" height="70px">
                 <h2>{{ $services->__('name') }}</h2>
             </a>
-            <p>
+            <pre>
                 {{ $services->__('description') }}
-            </p>
+            </pre>
         </div>
     @endforeach
 @endsection

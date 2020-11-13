@@ -33,5 +33,6 @@ return [
     'about_us' => 'About us',
     'services' => 'Service',
     'sphere' => 'Sphere',
+    'sex' => 'Sex',
 
 ];

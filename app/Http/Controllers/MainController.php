@@ -12,6 +12,7 @@ use App\Models\Service;
 use \Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use function GuzzleHttp\Promise\all;
 
 class MainController extends Controller
 {
@@ -27,6 +28,20 @@ class MainController extends Controller
 
         if ($request->filled('price_to')) {
             $productQuery->where('price', '<=', $request->price_to);
+        }
+
+        if ($request->filled('sphere')) {
+            $productQuery->where('sphere', 'like',"%" . $request->sphere . "%");
+        }
+
+        if ($request->filled('category')) {
+            $productQuery->whereHas('category', function ($query) use ($request) {
+                $query->where('name', 'like', $request->category);
+            });
+        }
+
+        if ($request->filled('sex')) {
+            $productQuery->where('sex', 'like',"%" . $request->sex . "%");
         }
 
         foreach (['hit', 'new', 'recommend'] as $field) {

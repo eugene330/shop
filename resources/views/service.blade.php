@@ -3,7 +3,6 @@
 @section('title', __('main.services') . $service->__('name'))
 
 @section('content')
-    {{ dd($service) }}
     <h1>
         {{ $service->__('name') }}
     </h1>
