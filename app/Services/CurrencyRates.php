@@ -11,7 +11,7 @@ class CurrencyRates
     {
         $baseCurrency = CurrencyConversion::getBaseCurrency();
 
-        //$url = config('currency_rates.api_url') . '?base=' . $baseCurrency->code; //TODO
+//        $url = config('currency_rates.api_url') . '?base=' . $baseCurrency->code; //TODO
         $url = 'https://api.exchangeratesapi.io/latest' . '?base=' . $baseCurrency->code;
 
         $client = new Client();

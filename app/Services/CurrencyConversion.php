@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class CurrencyConversion
 {
-    public const DEFAULT_CURRENCY_CODE = 'RUB';
+    public const DEFAULT_CURRENCY_CODE = 'USD';
 
     protected static $container;
 
@@ -44,8 +44,16 @@ class CurrencyConversion
         }
     }
 
-    public static function convert($sum, $originCurrencyCode = self::DEFAULT_CURRENCY_CODE, $targetCurrencyCode = null)
+    public static function loadApiCurrency()
     {
+
+    }
+
+    public static function convert(
+        $sum,
+        $originCurrencyCode = self::DEFAULT_CURRENCY_CODE,
+        $targetCurrencyCode = null
+    ) {
         self::loadContainer();
 
         $originCurrency = self::$container[$originCurrencyCode];

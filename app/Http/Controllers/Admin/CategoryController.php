@@ -6,6 +6,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use App\Services\CurrencyConversion;
+use App\Services\CurrencyRates;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,6 +21,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate(10);
+        CurrencyRates::getRates();
         return view('auth.categories.index', compact('categories'));
     }
 

@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-md-12">
         <h1>{{ $product->name }}</h1>
-        {{dd($product)}}
+{{--        {{dd($product->getUSDPrice())}}--}}
         <table class="table">
             <tbody>
             <tr>
@@ -29,6 +29,10 @@
             <tr>
                 <td>Название en</td>
                 <td>{{ $product->name_en }}</td>
+            </tr>
+            <tr>
+                <td>Зарплата</td>
+                <td>{{ $product->price ." " . $product->original_currency }}</td>
             </tr>
             <tr>
                 <td>Сфера</td>

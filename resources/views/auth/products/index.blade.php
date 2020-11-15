@@ -44,7 +44,7 @@
                     <td>{{ $product->sphere }}</td>
                     <td>{{ $product->sex }}</td>
                     <td>{{ $product->category->name }}</td>
-                    <td>{{ $product->price }}</td>
+                    <td>{{ $product->price." ".$product->original_currency}}</td>
                     <td>{{ $product->count }}</td>
                     <td>
                         <div class="btn-group" role="group">

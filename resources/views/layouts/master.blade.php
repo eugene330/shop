@@ -13,7 +13,11 @@
     <link href="{{url('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{url('css/starter-template.css')}}" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(storage/Logo.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            opacity: 0.85">
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">

@@ -8,6 +8,11 @@ class Currency extends Model
 {
     protected $fillable = ['rate'];
 
+    public function product()
+    {
+        return $this->hasMany(Product::class, 'original_currency', 'code');
+    }
+
     public function scopeByCode($query, $code)
     {
         return $query->where('code', $code);

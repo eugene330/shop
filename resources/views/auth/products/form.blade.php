@@ -87,6 +87,32 @@
                 </div>
                 <br>
                 <div class="input-group row">
+                    <label for="price" class="col-sm-2 col-form-label">Зарплата: </label>
+                    <div class="col-sm-2">
+                        @include('auth.layouts.error', ['fieldName' => 'price'])
+                        <input type="text" class="form-control" name="price" id="price"
+                               value="@isset($product){{ $product->price }}@endisset">
+                    </div>
+                </div>
+                <br>
+                <div class="input-group row">
+                    <label for="original_currency" class="col-sm-2 col-form-label">Валюта: </label>
+                    <div class="col-sm-6">
+                        <select name="original_currency" id="currency" class="form-control">
+                            @foreach($currencies as $currency)
+                                <option value="{{ $currency->code }}"
+                                        @isset($product)
+                                        @if($product->original_currency === $currency->code)
+                                        selected
+                                    @endif
+                                    @endisset
+                                >{{ $currency->code }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="input-group row">
                     <label for="sex_id" class="col-sm-2 col-form-label">Пол: </label>
                     <div class="col-sm-6">
                         <select name="sex" id="sex" class="form-control">
@@ -125,17 +151,9 @@
                     </div>
                 </div>
                 <br>
+
                 <div class="input-group row">
-                    <label for="price" class="col-sm-2 col-form-label">Зарплата: </label>
-                    <div class="col-sm-2">
-                        @include('auth.layouts.error', ['fieldName' => 'price'])
-                        <input type="text" class="form-control" name="price" id="price"
-                               value="@isset($product){{ $product->price }}@endisset">
-                    </div>
-                </div>
-                <br>
-                <div class="input-group row">
-                    <label for="count" class="col-sm-2 col-form-label">Количество: </label>
+                    <label for="count" class="col-sm-2 col-form-label">Актуальность (1/0): </label>
                     <div class="col-sm-2">
                         @include('auth.layouts.error', ['fieldName' => 'count'])
                         <input type="text" class="form-control" name="count" id="count"

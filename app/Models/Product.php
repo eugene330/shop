@@ -27,6 +27,7 @@ class Product extends Model
         'sphere',
         'sphere_en',
         'sex',
+        'original_currency'
     ];
 
     public function category()
@@ -34,15 +35,19 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function skus()
+    public function currency()
     {
-        return $this->hasMany(Sku::class);
+        return $this->belongsTo(Currency::class, 'original_currency', 'code');
     }
 
-    //TODO Check table name and fields
     public function properties()
     {
         return $this->belongsToMany(Property::class);
+    }
+
+    public function getUSDPrice()
+    {
+        return round( $this->price / $this->currency->rate);
     }
 
     public function getPriceForCount()

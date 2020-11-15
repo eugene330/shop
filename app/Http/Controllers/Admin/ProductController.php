@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
+use App\Models\Currency;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -30,8 +31,9 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $currencies = Currency::orderByDesc('is_main')->get();
         $categories = Category::get();
-        return view('auth.products.form', compact('categories'));
+        return view('auth.products.form', compact('categories', 'currencies'));
     }
 
     /**
@@ -72,8 +74,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $currencies = Currency::get();
         $categories = Category::get();
-        return view('auth.products.form', compact('product', 'categories'));
+        return view('auth.products.form', compact('product', 'categories', 'currencies'));
     }
 
     /**
