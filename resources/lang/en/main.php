@@ -26,7 +26,7 @@ return [
     'admin_panel' => 'Admin panel',
     'title' => 'Vacancies',
     'rub' => 'uah',
-    'add_to_basket' => 'Add to cart',
+    'add_to_basket' => 'Order a consultation',
     'more' => 'More about',
     'not_available' => 'Not available',
     'project_reset' => 'The Project was reset',

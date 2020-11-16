@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-md-12">
         <h1>{{ $product->name }}</h1>
-{{--        {{dd($product->getUSDPrice())}}--}}
+        {{--        {{dd($product->getUSDPrice())}}--}}
         <table class="table">
             <tbody>
             <tr>

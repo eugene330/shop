@@ -30,8 +30,6 @@
                 <li @routeactive('categor*')><a href="{{ route('categories') }}">@lang('main.categories')</a>
                 </li>
                 <li @routeactive('basket*')><a href="{{ route('basket') }}">@lang('main.cart')</a></li>
-{{--                <li><a href="{{ route('reset') }}">@lang('main.reset_project')</a></li>--}}
-                <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
                 <li @routeactive('about-us')><a href="{{ route('about-us') }}">@lang('main.about_us')</a></li>
                 <li @routeactive('service')><a href="{{ route('services') }}">@lang('main.services')</a></li>
             </ul>
@@ -48,7 +46,9 @@
             </li>
 
             <ul class="nav navbar-nav navbar-right">
-                @guest
+                <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
+
+            @guest
                     <li><a href="{{ route('login') }}">@lang('main.login')</a></li>
                 @endguest
 

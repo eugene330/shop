@@ -47,7 +47,7 @@ class Product extends Model
 
     public function getUSDPrice()
     {
-        return round( $this->price / $this->currency->rate);
+        return round($this->price / $this->currency->rate);
     }
 
     public function getPriceForCount()

@@ -14,22 +14,39 @@
                     <input type="text" name="price_to" id="price_to" size="6" value="{{ request()->price_to }}">
                 </label>
             </div>
-            <div class="col-sm-2 col-md-2">
-                <label for="sphere">
-                    <input type="select" name="sphere" id="sphere"
-                           value="{{request()->get('sphere')}}" @if(request()->has('sphere')) @endif> @lang('main.sphere')
+            <div class="col-sm-2 col-md-2">@lang('main.sphere')
+                <label for="price_to">
+                    <select name="sphere" id="sphere" class="form-control">
+                        <option></option>
+                        @foreach($products as $product)
+                            <option value="{{ $product->sphere }}"
+                            >{{ $product->sphere }}</option>
+                        @endforeach
+
+                    </select>
                 </label>
             </div>
-            <div class="col-sm-2 col-md-2">
+            <div class="col-sm-2 col-md-2">@lang('main.sex')
                 <label for="sex">
-                    <input type="select" name="sex" id="sex"
-                           value="{{request()->get('sex')}}" @if(request()->has('sex')) @endif> @lang('main.sex')
+                    <select name="sex" id="sex" class="form-control">
+                        <option></option>
+                        @foreach($products as $product)
+                            <option value="{{ $product->sex }}"
+                            >{{ $product->sex }}</option>
+                        @endforeach
+
+                    </select>
                 </label>
             </div>
-            <div class="col-sm-2 col-md-2">
+            <div class="col-sm-2 col-md-2">@lang('main.category')
                 <label for="category">
-                    <input type="select" name="category" id="category"
-                           value="{{request()->get('category')}}" @if(request()->has('category')) @endif> @lang('main.category')
+                    <select name="category" id="category" class="form-control">
+                        <option></option>
+                        @foreach($products as $product)
+                            <option value="{{ $product->category->name }}"
+                            >{{ $product->category->name }}</option>
+                        @endforeach
+                    </select>
                 </label>
             </div>
             <div class="col-sm-2 col-md-2" style="clear: left ">
